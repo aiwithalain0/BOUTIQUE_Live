@@ -1,0 +1,6 @@
+{
+  "name": "L’AVENIR Studio",
+  "description": "L’AVENIR — Luxury clothing boutique and bespoke digital studio.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

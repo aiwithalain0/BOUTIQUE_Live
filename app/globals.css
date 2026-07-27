@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+:root {
+  --forest: #435B47;
+  --sage: #86A386;
+  --light-sage: #C2D0C0;
+  --alabaster: #F3EDE2;
+  --white: #FFFFFF;
+
+  --background: #FFFFFF;
+  --foreground: #222831;
+  --card-bg: #FFFFFF;
+  --accent: #435B47;
+  --accent-hover: #354938;
+  --border-color: #C2D0C0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #FFFFFF;
+  color: #222831;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, .font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* Custom Utilities for Sage & Forest Green Theme */
+.bg-forest { background-color: #435B47 !important; }
+.text-forest { color: #435B47 !important; }
+.border-forest { border-color: #435B47 !important; }
+
+.bg-sage { background-color: #86A386 !important; }
+.text-sage { color: #86A386 !important; }
+.border-sage { border-color: #86A386 !important; }
+
+.bg-lightsage { background-color: #C2D0C0 !important; }
+.text-lightsage { color: #C2D0C0 !important; }
+.border-lightsage { border-color: #C2D0C0 !important; }
+
+.bg-alabaster { background-color: #F3EDE2 !important; }
+.text-alabaster { color: #F3EDE2 !important; }
+.border-alabaster { border-color: #F3EDE2 !important; }
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-24px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .reveal-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(24px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .reveal-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .delay-100 { transition-delay: 100ms; }
+  .delay-200 { transition-delay: 200ms; }
+  .delay-300 { transition-delay: 300ms; }
+  .delay-400 { transition-delay: 400ms; }
+  .delay-500 { transition-delay: 500ms; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold text-white transition-all duration-300 border border-[#435B47];
+    background: #435B47;
+    box-shadow: 0 4px 16px rgba(67, 91, 71, 0.25);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(67, 91, 71, 0.4);
+    background: #354938;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold border-2 transition-all duration-300;
+    border-color: #435B47;
+    color: #435B47;
+    background-color: transparent;
+  }
+
+  .btn-outline:hover {
+    background-color: #435B47;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(67, 91, 71, 0.25);
+  }
+
+  .btn-glass {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 backdrop-blur-md border border-[#C2D0C0] bg-[#F3EDE2]/90 hover:bg-[#435B47] hover:text-white hover:border-[#435B47] shadow-lg;
+  }
+
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, #C2D0C0 50%, transparent 100%);
+    @apply my-16 opacity-60;
+  }
+
+  .badge-trending {
+    @apply inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold;
+    background-color: #86A386;
+    color: #FFFFFF;
+  }
+
+  .badge-limited {
+    @apply inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold;
+    background-color: #435B47;
+    color: #FFFFFF;
+  }
+
+  .badge-new {
+    @apply inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold;
+    background-color: #86A386;
+    color: #FFFFFF;
+  }
+
+  .product-card {
+    @apply rounded-2xl overflow-hidden transition-all duration-300 cursor-pointer relative bg-white border border-[#C2D0C0];
+    box-shadow: 0 2px 12px rgba(67, 91, 71, 0.08);
+  }
+
+  .product-card:hover {
+    box-shadow: 0 8px 24px rgba(67, 91, 71, 0.18);
+    border-color: #86A386;
+    transform: translateY(-4px);
+  }
+
+  .nav-link {
+    @apply text-sm font-medium transition-colors duration-200 relative;
+    color: #222831;
+  }
+
+  .nav-link:hover {
+    color: #435B47;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300;
+    background-color: #435B47;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+}
+
